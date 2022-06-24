@@ -1,0 +1,90 @@
+filetype plugin indent on
+" set background=dark
+syntax enable
+
+set title
+set nu
+set relativenumber
+set nowrap
+set ignorecase
+set smartcase
+set incsearch
+set tabstop=4
+set softtabstop=4
+set expandtab
+set smarttab
+set autoindent
+set wildmenu
+set noswapfile
+set undodir=~/.vim/undodir
+set undofile
+set clipboard=unnamedplus
+
+nnoremap <C-c> yy
+inoremap <C-c> yy
+vnoremap <C-c> yy
+
+inoremap jk <esc>
+nnoremap E $
+nnoremap J <NOP>
+
+noremap <Up> <NOP>
+noremap <Down> <NOP>
+noremap <Left> <NOP>
+noremap <Right> <NOP>
+"inoremap <Up> <NOP>
+"inoremap <Down> <NOP>
+inoremap <Left> <NOP>
+inoremap <Right> <NOP>
+
+" inoremap ( ()<Esc>i
+" inoremap { {}<Esc>i
+" inoremap [ []<Esc>i
+inoremap {<CR> {<CR>}<Esc>ko<tab>
+inoremap < <><Esc>i
+" inoremap ' ''<Esc>i
+" inoremap " ""<Esc>i
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+nnoremap <C-f> :NERDTreeFind<CR>
+
+command W w
+command Wq wq
+
+call plug#begin()
+
+Plug 'base16-project/base16-vim'
+Plug 'dense-analysis/ale'
+Plug 'rust-lang/rust.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
+" Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline-themes'
+
+call plug#end()            
+
+" colorscheme solarized
+
+" let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+" let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+
+" set t_Co=256
+" let base16colorspace=256  " Access colors present in 256 colorspace
+" colorscheme base16-atelier-dune
+colorscheme base16-gruvbox-dark-hard
+" set termguicolors
+" hi Normal ctermbg=NONE
+
+if &term =~ '256color'
+  " Enable true (24-bit) colors instead of (8-bit) 256 colors.
+  " :h true-color
+  if has('termguicolors')
+    let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+    let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+    set termguicolors
+  endif
+  colorscheme base16-gruvbox-dark-hard
+endif
