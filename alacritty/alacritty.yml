@@ -177,11 +177,71 @@ font:
 
 # Base16 Gruvbox dark, hard 256 - alacritty color config
 # Dawid Kurek (dawikur@gmail.com), morhetz (https://github.com/morhetz/gruvbox)
-colors:
+
+# Colors (Base16 Default Dark)
   # Default colors
-  primary:
-    background: '#1d2021'
-    foreground: '#d5c4a1'
+schemes:
+  base_16_default_dark: &base16_dark
+    primary:
+     background: '#181818'
+     foreground: '#d8d8d8'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+     text: '#d8d8d8'
+     cursor: '#d8d8d8'
+
+  # Normal colors
+    normal:
+     black:   '#181818'
+     red:     '#ab4642'
+     green:   '#a1b56c'
+     yellow:  '#f7ca88'
+     blue:    '#7cafc2'
+     magenta: '#ba8baf'
+     cyan:    '#86c1b9'
+     white:   '#d8d8d8'
+
+  # Bright colors
+    bright:
+     black:   '#585858'
+     red:     '#ab4642'
+     green:   '#a1b56c'
+     yellow:  '#f7ca88'
+     blue:    '#7cafc2'
+     magenta: '#ba8baf'
+     cyan:    '#86c1b9'
+     white:   '#f8f8f8'
+  
+  default_alacritty: &default
+  # Normal colors
+    normal:
+     black:   '#1d2021'
+     red:     '#fb4934'
+     green:   '#b8bb26'
+     yellow:  '#fabd2f'
+     blue:    '#83a598'
+     magenta: '#d3869b'
+     cyan:    '#8ec07c'
+     white:   '#d5c4a1'
+
+  # Bright colors
+    bright:
+     black:   '#665c54'
+     red:     '#fb4934'
+     green:   '#b8bb26'
+     yellow:  '#fabd2f'
+     blue:    '#83a598'
+     magenta: '#d3869b'
+     cyan:    '#8ec07c'
+     white:   '#fbf1c7'
+
+colors: *default
+# colors:
+  # Default colors
+  # primary:
+  #   background: '#1d2021'
+  #   foreground: '#d5c4a1'
 
     # Bright and dim foreground colors
     #
@@ -198,9 +258,9 @@ colors:
   #
   # Allowed values are CellForeground/CellBackground, which reference the
   # affected cell, or hexadecimal colors like #ff00ff.
-  cursor:
-    text: '#1d2021'
-    cursor: '#d5c4a1'
+  # cursor:
+  #   text: '#1d2021'
+  #   cursor: '#d5c4a1'
 
   # Vi mode cursor colors
   #
@@ -267,27 +327,6 @@ colors:
   #  text: CellBackground
   #  background: CellForeground
 
-  # Normal colors
-  normal:
-    black:   '#1d2021'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#d5c4a1'
-
-  # Bright colors
-  bright:
-    black:   '#665c54'
-    red:     '#fb4934'
-    green:   '#b8bb26'
-    yellow:  '#fabd2f'
-    blue:    '#83a598'
-    magenta: '#d3869b'
-    cyan:    '#8ec07c'
-    white:   '#fbf1c7'
 
   # Dim colors
   #
@@ -311,13 +350,13 @@ colors:
   # Example:
   #   `- { index: 16, color: '#ff00ff' }`
   #
-  indexed_colors:
-    - { index: 16, color: '#fe8019' }
-    - { index: 17, color: '#d65d0e' }
-    - { index: 18, color: '#3c3836' }
-    - { index: 19, color: '#504945' }
-    - { index: 20, color: '#bdae93' }
-    - { index: 21, color: '#ebdbb2' }
+  # indexed_colors:
+  #   - { index: 16, color: '#fe8019' }
+  #   - { index: 17, color: '#d65d0e' }
+  #   - { index: 18, color: '#3c3836' }
+  #   - { index: 19, color: '#504945' }
+  #   - { index: 20, color: '#bdae93' }
+  #   - { index: 21, color: '#ebdbb2' }
 
 # Bell
 #
