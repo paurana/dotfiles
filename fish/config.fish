@@ -3,4 +3,10 @@ if status is-interactive
     #source "$BASE16_SHELL/profile_helper.fish"
 end
 
+# set fish_function_path $fish_function_path ~/.config/fish/plugin-foreign-env/functions
+# fenv source ~/.profile
+
+export PATH="$HOME/.cargo/bin:$PATH"
+export WINIT_UNIX_BACKEND=x11
+
 alias ls=exa

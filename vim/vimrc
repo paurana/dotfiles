@@ -2,6 +2,7 @@ filetype plugin indent on
 set background=dark
 syntax enable
 
+set encoding=utf8
 set title
 set nu
 set relativenumber
@@ -60,29 +61,26 @@ Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'preservim/nerdtree'
-Plug 'ryanoasis/vim-devicons'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()            
 
-" colorscheme solarized
+" for normal alacritty sessions
+let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
+let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+set t_Co=256
+let base16colorspace=256  " Access colors present in 256 colorspace
+colorscheme base16-gruvbox-dark-hard
+set termguicolors
 
-" let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
-" let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
+" let g:airline_powerline_fonts = 1
+let g:airline_extensions = []
+" let g:airline_theme='base16'
 
-" set t_Co=256
-" let base16colorspace=256  " Access colors present in 256 colorspace
-" colorscheme base16-atelier-dune
-" colorscheme base16-gruvbox-dark-hard
-" set termguicolors
-" hi Normal ctermbg=NONE
 
-" if filereadable(expand("~/.vimrc_background"))
-"   let base16colorspace=256
-"   source ~/.vimrc_background
-" endif
-
+" for tmux sessions
 if &term =~ '256color'
   " Enable true (24-bit) colors instead of (8-bit) 256 colors.
   " :h true-color
@@ -94,3 +92,28 @@ if &term =~ '256color'
   " colorscheme base16-atelier-dune
   colorscheme base16-gruvbox-dark-hard
 endif
+
+let s:brown = "905532"
+let s:aqua =  "3AFFDB"
+let s:blue = "689FB6"
+let s:darkBlue = "44788E"
+let s:purple = "834F79"
+let s:lightPurple = "834F79"
+let s:red = "AE403F"
+let s:beige = "F5C06F"
+let s:yellow = "F09F17"
+let s:orange = "D4843E"
+let s:darkOrange = "F16529"
+let s:pink = "CB6F6F"
+let s:salmon = "EE6E73"
+let s:green = "8FAA54"
+let s:lightGreen = "31B53E"
+let s:white = "FFFFFF"
+let s:rspec_red = 'FE405F'
+let s:git_orange = 'F54D27'
+
+let g:NERDTreeWinSize=25
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name

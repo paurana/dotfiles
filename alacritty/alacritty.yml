@@ -14,14 +14,15 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-#env:
-  # TERM variable
+env:
+  TERM: xterm-256color
+#   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
   # each instance of Alacritty. If it is not present, alacritty will
   # check the local terminfo database and use `alacritty` if it is
   # available, otherwise `xterm-256color` is used.
-  #TERM: alacritty
+  # TERM: alacritty
 
 window:
   # Window dimensions (changes require restart)
@@ -29,9 +30,9 @@ window:
   # Number of lines/columns (not pixels) in the terminal. The number of columns
   # must be at least `2`, while using a value of `0` for columns and lines will
   # fall back to the window manager's recommended size.
-  #dimensions:
-  #  columns: 0
-  #  lines: 0
+  # dimensions:
+  #   columns: 0
+  #   lines: 0
 
   # Window position (changes require restart)
   #
@@ -50,7 +51,7 @@ window:
   #  y: 0
 
   # Spread additional padding evenly around the terminal content.
-  #dynamic_padding: false
+  # dynamic_padding: false
 
   # Window decorations
   #
@@ -74,24 +75,24 @@ window:
   #   - SimpleFullscreen
   #startup_mode: Windowed
 
-  # Window title
-  #title: Alacritty
+   # Window title
+  # title: Alacritty@paurana
 
   # Allow terminal applications to change Alacritty's window title.
   dynamic_title: true
 
   # Window class (Linux/BSD only):
-  #class:
-    # Application instance name
-    #instance: Alacritty
-    # General application class
-    #general: Alacritty
+  # class:
+  #    # Application instance name
+  #   instance: Alacritty
+  #    # General application class
+  #   general: Alacritty
 
   # GTK theme variant (Linux/BSD only)
   #
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
-  #gtk_theme_variant: None
+  # gtk_theme_variant: dark
 
 scrolling:
   # Maximum number of lines in the scrollback buffer.
@@ -103,18 +104,33 @@ scrolling:
 
 # Font configuration
 font:
-  # Normal (roman) font face
   normal:
+    family: "Hack Nerd Font"
+    style: Regular
+  bold:
+    family: "Hack Nerd Font"
+    style: Bold
+  italic:
+    family: "Hack Nerd Font"
+    style: Italic
+  bold_italic:
+    family: "Hack Nerd Font"
+    style: Bold Italic
+
+  # Normal (roman) font face
+  # normal:
     # Font family
     #
     # Default:
     #   - (macOS) Menlo
     #   - (Linux/BSD) monospace
     #   - (Windows) Consolas
-    family: "Noto Sans Mono"
+    # family: "Noto Sans Mono"
+    # style: Regular
+    # family: "JetBrainsMonoNL Nerd Font"
+    # style: bold
 
     # The `style` can be specified to pick a specific face.
-    #style: Regular
 
   # Bold font face
   #bold:
@@ -214,6 +230,9 @@ schemes:
      white:   '#f8f8f8'
   
   default_alacritty: &default
+    primary:
+     background: '#1d2021'
+     foreground: '#d5c4a1'
   # Normal colors
     normal:
      black:   '#1d2021'
@@ -239,9 +258,6 @@ schemes:
 colors: *default
 # colors:
   # Default colors
-  # primary:
-  #   background: '#1d2021'
-  #   foreground: '#d5c4a1'
 
     # Bright and dim foreground colors
     #
