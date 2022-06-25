@@ -14,8 +14,8 @@
 # Any items in the `env` entry below will be added as
 # environment variables. Some entries may override variables
 # set by alacritty itself.
-env:
-  TERM: xterm-256color
+# env:
+#   TERM: xterm-256color
 #   # TERM variable
   #
   # This value is used to set the `$TERM` environment variable for
@@ -255,6 +255,48 @@ schemes:
      cyan:    '#8ec07c'
      white:   '#fbf1c7'
 
+  indexed_colors:
+    - { index: 16, color: '#fe8019' }
+    - { index: 17, color: '#d65d0e' }
+    - { index: 18, color: '#3c3836' }
+    - { index: 19, color: '#504945' }
+    - { index: 20, color: '#bdae93' }
+    - { index: 21, color: '#ebdbb2' }
+
+  base16_atelier_dune: &base16_atelier_dune
+    primary:
+      background: '0x20201d'
+      foreground: '0xa6a28c'
+
+  # Colors the cursor will use if `custom_cursor_colors` is true
+    cursor:
+     text: '0x20201d'
+     cursor: '0xa6a28c'
+
+  # Normal colors
+    normal:
+     black:   '0x20201d'
+     red:     '0xd73737'
+     green:   '0x60ac39'
+     yellow:  '0xae9513'
+     blue:    '0x6684e1'
+     magenta: '0xb854d4'
+     cyan:    '0x1fad83'
+     white:   '0xa6a28c'
+  
+   # Bright colors
+    bright:
+     black:   '0x7d7a68'
+     red:     '0xb65611'
+     green:   '0x292824'
+     yellow:  '0x6e6b5e'
+     blue:    '0x999580'
+     magenta: '0xe8e4cf'
+     cyan:    '0xd43552'
+     white:   '0xfefbec'
+  
+draw_bold_text_with_bright_colors: false
+
 colors: *default
 # colors:
   # Default colors
@@ -366,13 +408,6 @@ colors: *default
   # Example:
   #   `- { index: 16, color: '#ff00ff' }`
   #
-  # indexed_colors:
-  #   - { index: 16, color: '#fe8019' }
-  #   - { index: 17, color: '#d65d0e' }
-  #   - { index: 18, color: '#3c3836' }
-  #   - { index: 19, color: '#504945' }
-  #   - { index: 20, color: '#bdae93' }
-  #   - { index: 21, color: '#ebdbb2' }
 
 # Bell
 #

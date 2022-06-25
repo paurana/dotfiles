@@ -21,6 +21,8 @@ set undodir=~/.vim/undodir
 set undofile
 set clipboard=unnamedplus
 
+let mapleader = " " " map leader to Space
+
 nnoremap <C-c> yy
 inoremap <C-c> yy
 vnoremap <C-c> yy
@@ -46,10 +48,23 @@ inoremap < <><Esc>i
 " inoremap ' ''<Esc>i
 " inoremap " ""<Esc>i
 
-nnoremap <leader>n :NERDTreeFocus<CR>
-nnoremap <C-n> :NERDTree<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-t> :NERDTree<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
+
+" fzf
+map <C-p> :Files<CR>
+nmap <leader>; :Buffers<CR>
+
+"quick save
+nmap <leader>w :W<CR>
+
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
 
 command W w
 command Wq wq
@@ -57,27 +72,40 @@ command Wq wq
 call plug#begin()
 
 Plug 'base16-project/base16-vim'
+
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 
+Plug 'airblade/vim-rooter'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
 call plug#end()            
+
+let g:NERDTreeWinSize=25
+" let g:NERDTreeDirArrowExpandable = '+'
+" let g:NERDTreeDirArrowCollapsible = '-'
+let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
+let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
 " for normal alacritty sessions
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
-colorscheme base16-gruvbox-dark-hard
+" colorscheme base16-gruvbox-dark-hard
+colorscheme base16-atelier-dune
 set termguicolors
 
 " let g:airline_powerline_fonts = 1
 let g:airline_extensions = []
-" let g:airline_theme='base16'
+" let g:airline_theme='base16-gruvbox-dark-hard'
 
 
 " for tmux sessions
@@ -111,9 +139,3 @@ let s:lightGreen = "31B53E"
 let s:white = "FFFFFF"
 let s:rspec_red = 'FE405F'
 let s:git_orange = 'F54D27'
-
-let g:NERDTreeWinSize=25
-" let g:NERDTreeDirArrowExpandable = '+'
-" let g:NERDTreeDirArrowCollapsible = '-'
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
