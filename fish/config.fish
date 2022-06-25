@@ -10,3 +10,4 @@ export PATH="$HOME/.cargo/bin:$PATH"
 export WINIT_UNIX_BACKEND=x11
 
 alias ls=exa
+alias tmux="tmux -u"
