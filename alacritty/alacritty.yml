@@ -82,7 +82,8 @@ window:
   # Override the variant of the GTK theme. Commonly supported values are `dark`
   # and `light`. Set this to `None` to use the default theme variant.
   # gtk_theme_variant: dark
-  # moved shell: and key_bindings: here because alacritty-themes deletes everything below font: when a new theme is applied
+
+# moved shell: and key_bindings: here because alacritty-themes deletes everything below font: when a new theme is applied
 shell:
   program: /bin/fish
   args:
