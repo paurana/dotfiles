@@ -60,7 +60,7 @@ nmap <leader>; :Buffers<CR>
 "quick save
 nmap <leader>w :W<CR>
 
-"coc autocomplete navigation 
+"coc autocomplete navigation
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
 
@@ -93,7 +93,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'machakann/vim-highlightedyank'
 
-call plug#end()            
+call plug#end()
 
 let g:rustfmt_autosave = 1
 
@@ -111,10 +111,11 @@ let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-gruvbox-dark-hard
 set termguicolors
 
-" let g:airline_powerline_fonts = 1
-let g:airline_extensions = []
-" let g:airline_theme='base16-gruvbox-dark-hard'
-
+let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
+let g:airline_theme='base16_gruvbox_dark_hard'
 
 " for tmux sessions
 if &term =~ '256color'
