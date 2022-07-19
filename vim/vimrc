@@ -17,9 +17,15 @@ set smarttab
 set autoindent
 set wildmenu
 set noswapfile
-set undodir=~/.vim/undodir
 set undofile
+set undodir=~/.vim/undodir/
 set clipboard=unnamedplus
+set noshowmode
+set tags=./tags;/
+
+if !has('nvim')
+        set undodir=~/.config/nvim/undodir
+endif
 
 let mapleader = " " " map leader to Space
 
@@ -95,6 +101,7 @@ Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
+let g:ale_rust_cargo_use_clippy = 1
 let g:rustfmt_autosave = 1
 
 let g:NERDTreeWinSize=25
