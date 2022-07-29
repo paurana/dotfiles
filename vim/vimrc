@@ -69,6 +69,7 @@ nmap <leader>w :W<CR>
 "coc autocomplete navigation
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
 inoremap <expr> <S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 "search item must appear in the middle of the screen
 nnoremap <silent> n nzz
@@ -101,7 +102,7 @@ Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
 
-let g:ale_rust_cargo_use_clippy = 1
+" let g:ale_rust_cargo_use_clippy = 1
 let g:rustfmt_autosave = 1
 
 let g:NERDTreeWinSize=25
