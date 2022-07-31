@@ -203,11 +203,12 @@ bindsym $mod+m exec nautilus
 bindsym Print       exec flameshot full -p ~/Pictures/Screenshots/i3
 bindsym Shift+Print exec flameshot gui -p ~/Pictures/Screenshots/i3
 
-exec --no-startup-id i3-msg 'workspace 3: Firefox; exec /usr/bin/firefox'
+exec --no-startup-id i3-msg 'workspace 3: Firefox; exec firefox'
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
 exec compton
 exec --no-startup-id hsetroot -solid "#FFFFFF"
 exec feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
+exec_always --no-startup-id $HOME/.config/i3/battery.sh
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
