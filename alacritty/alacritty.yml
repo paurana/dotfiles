@@ -88,6 +88,8 @@ shell:
   program: /bin/fish
   args:
     - --login
+    - -c
+    - "tmux -u"
 
 key_bindings:
   - { key: V, mods: Alt, action: Paste }

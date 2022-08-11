@@ -211,6 +211,7 @@ exec feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
+set $i3lockwall sh $HOME/.config/i3/scripts/lock.sh
 
 mode "$mode_system" {
     bindsym l exec --no-startup-id $i3lockwall, mode "default"

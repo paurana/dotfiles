@@ -30,7 +30,7 @@ padding-left = 0
 padding-right = 2
 
 module-margin-left = 1
-module-margin-right = 2
+module-margin-right = 1
 
 font-0 = fixed:pixelsize=10;1
 font-1 = Noto Sans Symbols:style=Regular:size=8

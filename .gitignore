@@ -4,3 +4,4 @@ vim/fonts
 vim/pack
 vim/undodir
 vim/plugged
+push.sh
