@@ -33,8 +33,8 @@ nnoremap <C-c> yy
 inoremap <C-c> yy
 vnoremap <C-c> yy
 
-inoremap jk <esc>
-nnoremap E $
+" inoremap jk <esc>
+" nnoremap E $
 nnoremap J <NOP>
 
 noremap <Up> <NOP>
@@ -46,13 +46,8 @@ noremap <Right> <NOP>
 inoremap <Left> <NOP>
 inoremap <Right> <NOP>
 
-" inoremap ( ()<Esc>i
-" inoremap { {}<Esc>i
-" inoremap [ []<Esc>i
 inoremap {<CR> {<CR>}<Esc>ko
 inoremap < <><Esc>i
-" inoremap ' ''<Esc>i
-" inoremap " ""<Esc>i
 
 " nnoremap <C-t> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeFocus<CR>

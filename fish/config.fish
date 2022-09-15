@@ -6,6 +6,9 @@ export WINIT_UNIX_BACKEND=x11
 
 abbr -a tmux 'tmux -u'
 
+alias vim="nvim"
+alias oldvim="command vim"
+
 # better way to bind exa, also better bindings
 if command -v exa > /dev/null
 	abbr -a l 'exa'

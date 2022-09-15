@@ -1,5 +1,7 @@
 #!/bin/sh
 
+sleep 0.1
+
 # take screenshot
 
 import -window root /tmp/screenshot.png

@@ -208,6 +208,7 @@ exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rota
 exec compton
 exec --no-startup-id hsetroot -solid "#FFFFFF"
 exec feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
+exec xinput --set-prop 22 337 0.15
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown
