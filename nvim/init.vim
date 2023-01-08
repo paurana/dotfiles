@@ -18,14 +18,10 @@ set autoindent
 set wildmenu
 set noswapfile
 set undofile
-set undodir=~/.vim/undodir/
+set undodir=~/.config/nvim/undodir
 set clipboard=unnamedplus
 set noshowmode
 set tags=./tags;/
-
-if !has('nvim')
-        set undodir=~/.config/nvim/undodir
-endif
 
 let mapleader = " " " map leader to Space
 
@@ -33,8 +29,6 @@ nnoremap <C-c> yy
 inoremap <C-c> yy
 vnoremap <C-c> yy
 
-" inoremap jk <esc>
-" nnoremap E $
 nnoremap J <NOP>
 
 noremap <Up> <NOP>
@@ -52,7 +46,7 @@ inoremap < <><Esc>i
 " nnoremap <C-t> :NERDTree<CR>
 nnoremap <C-n> :NERDTreeFocus<CR>
 nnoremap <C-t> :NERDTreeToggle<CR>
-nnoremap <C-f> :Ag<CR>
+nnoremap <C-f> :Rg<CR>
 
 "fzf
 map <C-p> :Files<CR>
@@ -93,9 +87,31 @@ Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+
+Plug 'mbbill/undotree'
+
 Plug 'machakann/vim-highlightedyank'
 
 call plug#end()
+
+lua << END
+require 'nvim-treesitter.configs'.setup {
+  ensure_installed = { "help", "javascript", "c", "cpp", "lua", "rust" },
+
+  sync_install = false,
+
+  auto_install = true,
+
+  highlight = {
+    enable = true,
+
+    additional_vim_regex_highlighting = false,
+  },
+}
+END
+
+nnoremap <F5> :UndotreeToggle<CR>
 
 " let g:ale_rust_cargo_use_clippy = 1
 let g:rustfmt_autosave = 1
@@ -106,6 +122,14 @@ let g:NERDTreeWinSize=25
 let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
 let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
 
+
+
+let g:airline_powerline_fonts = 1
+" let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#hunks#enabled=0
+let g:airline#extensions#branch#enabled=1
+let g:airline_theme='base16_gruvbox_dark_hard'
+
 " for normal alacritty sessions
 let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
@@ -113,12 +137,6 @@ set t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
 colorscheme base16-gruvbox-dark-hard
 set termguicolors
-
-let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
-let g:airline#extensions#hunks#enabled=0
-let g:airline#extensions#branch#enabled=1
-let g:airline_theme='base16_gruvbox_dark_hard'
 
 " for tmux sessions
 if &term =~ '256color'

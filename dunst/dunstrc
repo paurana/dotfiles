@@ -301,18 +301,17 @@
 [urgency_normal]
     background = "#141929fe"
     highlight = "#5ca1ff"
-
     frame_color = "#272f57"
     foreground = "#dae1f2"
     timeout = 8
 
 [urgency_critical]
-    background = "#5ca1ffff"
+    background = "#141929fe"
     highlight = "#fe6c5a"
-    foreground = "#1c2138"
-    frame_color = "#52426e"
+    # foreground = "#1c2138"
+    foreground = "#ac1a1a"
+    frame_color = "#ac1a1a"
     timeout = 0
-    icon = battery-ac-adapter
 
 # Every section that isn't one of the above is interpreted as a rules to
 # override settings for certain messages.

@@ -1,6 +1,3 @@
-if status is-interactive
-end
-
 export PATH="$HOME/.cargo/bin:$PATH"
 export WINIT_UNIX_BACKEND=x11
 
@@ -21,9 +18,9 @@ else
 	abbr -a lll 'ls -la'
 end
 
-function _trap_exit
-        set name $(tmux display-message -p '#S')
-        tmux kill-session -t name
-end
+# function _trap_exit
+#         set name $(tmux display-message -p '#S')
+#        tmux kill-session -t name
+# end
 
-trap _trap_exit EXIT
+# trap _trap_exit EXIT

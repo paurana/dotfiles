@@ -151,6 +151,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10
 
 bindsym $mod+Ctrl+greater move workspace to output right
 bindsym $mod+Ctrl+less move workspace to output left
+
 for_window [class="Spotify"] move --no-auto-back-and-forth to workspace $ws10
 
 # reload the configuration file
@@ -209,6 +210,7 @@ exec compton
 exec --no-startup-id hsetroot -solid "#FFFFFF"
 exec feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png
 exec xinput --set-prop 22 337 0.15
+exec --no-startup-id xautolock -time 60 -locker "systemctl suspend"
 
 # shutdown / restart / suspend...
 set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (CTRL+s) shutdown

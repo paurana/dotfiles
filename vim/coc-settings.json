@@ -1,8 +1,0 @@
-{                                                                                                                                                                                           
-  "diagnostic.displayByAle": true,
-  "rust-analyzer.checkOnSave.command": "clippy",
-  "diagnostic.checkCurrentLine": true,
-  "diagnostic.virtualText": true,
-  "diagnostic.virtualTextCurrentLineOnly": false
-}
-
