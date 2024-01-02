@@ -11,10 +11,12 @@ set ignorecase
 set smartcase
 set incsearch
 set tabstop=4
-set softtabstop=4
+set shiftwidth=4
+"set softtabstop=0
 set expandtab
 set smarttab
 set autoindent
+set cindent
 set wildmenu
 set noswapfile
 set undofile
@@ -29,31 +31,21 @@ nnoremap <C-c> yy
 inoremap <C-c> yy
 vnoremap <C-c> yy
 
-nnoremap J <NOP>
-
-noremap <Up> <NOP>
-noremap <Down> <NOP>
-noremap <Left> <NOP>
-noremap <Right> <NOP>
-"inoremap <Up> <NOP>
-"inoremap <Down> <NOP>
-inoremap <Left> <NOP>
-inoremap <Right> <NOP>
-
 inoremap {<CR> {<CR>}<Esc>ko
-inoremap < <><Esc>i
 
-" nnoremap <C-t> :NERDTree<CR>
-nnoremap <C-n> :NERDTreeFocus<CR>
-nnoremap <C-t> :NERDTreeToggle<CR>
+"doesn't work atm
+tnoremap <Esc> <C-\><C-n>
+
+noremap <C-n> :NvimTreeToggle<CR>
 nnoremap <C-f> :Rg<CR>
 
-"fzf
-map <C-p> :Files<CR>
 nmap <leader>; :Buffers<CR>
 
 "quick save
 nmap <leader>w :W<CR>
+
+"ctrl + / to clear search highlight
+noremap <silent> <c-_> :let @/ = ""<CR>
 
 "coc autocomplete navigation
 inoremap <expr> <Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
@@ -67,31 +59,27 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 
+command Q q
 command W w
 command Wq wq
 
 call plug#begin()
 
 Plug 'base16-project/base16-vim'
-
 Plug 'dense-analysis/ale'
 Plug 'rust-lang/rust.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-Plug 'preservim/nerdtree'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
-Plug 'ryanoasis/vim-devicons'
-
 Plug 'airblade/vim-rooter'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'mbbill/undotree'
-
 Plug 'machakann/vim-highlightedyank'
+Plug 'blazkowolf/gruber-darker.nvim'
 
 call plug#end()
 
@@ -109,23 +97,33 @@ require 'nvim-treesitter.configs'.setup {
     additional_vim_regex_highlighting = false,
   },
 }
+
+-- empty setup using defaults
+require("nvim-tree").setup()
+
+-- OR setup with some options
+require("nvim-tree").setup({
+  sort_by = "case_sensitive",
+  view = {
+    width = 30,
+  },
+  renderer = {
+    group_empty = true,
+  },
+  filters = {
+    dotfiles = true,
+  },
+})
 END
 
 nnoremap <F5> :UndotreeToggle<CR>
 
-" let g:ale_rust_cargo_use_clippy = 1
+let g:loaded_netrw = 1
+let g:loaded_netrwPlugin = 1
+
 let g:rustfmt_autosave = 1
 
-let g:NERDTreeWinSize=25
-" let g:NERDTreeDirArrowExpandable = '+'
-" let g:NERDTreeDirArrowCollapsible = '-'
-let g:NERDTreeHighlightFolders = 1 " enables folder icon highlighting using exact match
-let g:NERDTreeHighlightFoldersFullName = 1 " highlights the folder name
-
-
-
 let g:airline_powerline_fonts = 1
-" let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#hunks#enabled=0
 let g:airline#extensions#branch#enabled=1
 let g:airline_theme='base16_gruvbox_dark_hard'
@@ -135,6 +133,7 @@ let &t_8f = "\<Esc>[38:2:%lu:%lu:%lum"
 let &t_8b = "\<Esc>[48:2:%lu:%lu:%lum"
 set t_Co=256
 let base16colorspace=256  " Access colors present in 256 colorspace
+" colorscheme gruber-darker
 colorscheme base16-gruvbox-dark-hard
 set termguicolors
 
