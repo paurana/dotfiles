@@ -201,8 +201,12 @@ for_window [class=".*"] border pixel 0
 bindsym $mod+f exec firefox
 bindsym $mod+m exec nautilus
 
-bindsym Print       exec flameshot full -p ~/Pictures/Screenshots/i3
-bindsym Shift+Print exec flameshot gui -p ~/Pictures/Screenshots/i3
+bindsym Print   exec --no-startup-id maim "/home/paurana/Pictures/Screenshots/$(date +%F-%H:%M:%S).png" | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec --no-startup-id maim -s "/home/paurana/Pictures/Screenshots/$(date +%F-%H:%M:%S).png" | xclip -selection clipboard -t image/png
+# bindsym $mod+u exec --no-startup-id brightnessctl set +5%
+# bindsym $mod+i exec --no-startup-id brightnessctl set -5%
+# bindsym XF86MonBrightnessUp exec --no-startup-id brightnessctl -e s +30 
+# bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -e s 30- 
 
 exec --no-startup-id i3-msg 'workspace 3: Firefox; exec firefox'
 exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal

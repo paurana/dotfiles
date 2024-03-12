@@ -5,6 +5,7 @@ abbr -a tmux 'tmux -u'
 
 alias vim="nvim"
 alias oldvim="command vim"
+alias python="python3"
 
 # better way to bind exa, also better bindings
 if command -v exa > /dev/null
