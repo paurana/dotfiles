@@ -209,7 +209,8 @@ bindsym Ctrl+Print exec --no-startup-id maim -s "/home/paurana/Pictures/Screensh
 # bindsym XF86MonBrightnessDown exec --no-startup-id brightnessctl -e s 30- 
 
 exec --no-startup-id i3-msg 'workspace 3: Firefox; exec firefox'
-exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
+# exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 1920x0 --rotate normal --output HDMI-1-0 --mode 1920x1080 --pos 0x0 --rotate normal
+exec_always xrandr --output eDP-1 --primary --mode 1920x1080 --pos 0x0 --rotate normal --output HDMI-1-0 --mode 1920x1080 --pos 1920x0 --rotate normal
 exec compton
 exec --no-startup-id hsetroot -solid "#FFFFFF"
 exec feh --bg-scale /usr/share/backgrounds/warty-final-ubuntu.png

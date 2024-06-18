@@ -12,7 +12,6 @@ set smartcase
 set incsearch
 set tabstop=4
 set shiftwidth=4
-"set softtabstop=0
 set expandtab
 set smarttab
 set autoindent
@@ -27,11 +26,18 @@ set tags=./tags;/
 
 let mapleader = " " " map leader to Space
 
-nnoremap <C-c> yy
-inoremap <C-c> yy
-vnoremap <C-c> yy
+"works as intended
+function! AutoFormatCurly()
+    execute "normal! $o}"
+    execute "normal! %a\<CR>\<Esc>"
+    execute "normal! k$=%j"
+endfunction
 
-inoremap {<CR> {<CR>}<Esc>ko
+inoremap { {<Esc>:call AutoFormatCurly()<CR>i
+" inoremap {<CR> {<CR>}<Esc>ko
+
+autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -Wall -Wno-unused-result -std=c++17 -O2 % -o %:r<CR>
+command! InsertCppTemplate execute '0r ~/codeforces/template.cpp'
 
 "doesn't work atm
 tnoremap <Esc> <C-\><C-n>
@@ -58,6 +64,11 @@ nnoremap <silent> N Nzz
 nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
+
+"jump cursor to //++ placeholder
+nnoremap <Space><Tab> <Esc>/\/\/++<Enter>"_c4l
+
+nnoremap <F3> :UndotreeToggle<CR>
 
 command Q q
 command W w
@@ -98,10 +109,6 @@ require 'nvim-treesitter.configs'.setup {
   },
 }
 
--- empty setup using defaults
-require("nvim-tree").setup()
-
--- OR setup with some options
 require("nvim-tree").setup({
   sort_by = "case_sensitive",
   view = {
@@ -110,13 +117,8 @@ require("nvim-tree").setup({
   renderer = {
     group_empty = true,
   },
-  filters = {
-    dotfiles = true,
-  },
 })
 END
-
-nnoremap <F5> :UndotreeToggle<CR>
 
 let g:loaded_netrw = 1
 let g:loaded_netrwPlugin = 1

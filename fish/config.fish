@@ -1,4 +1,5 @@
 export PATH="$HOME/.cargo/bin:$PATH"
+export PATH="$HOME/go/bin:$PATH"
 export WINIT_UNIX_BACKEND=x11
 
 abbr -a tmux 'tmux -u'
