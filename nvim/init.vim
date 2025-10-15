@@ -27,14 +27,14 @@ set tags=./tags;/
 let mapleader = " " " map leader to Space
 
 "works as intended
-function! AutoFormatCurly()
-    execute "normal! $o}"
-    execute "normal! %a\<CR>\<Esc>"
-    execute "normal! k$=%j"
-endfunction
+ function! AutoFormatCurly()
+     execute "normal! $o}"
+     execute "normal! %a\<CR>\<Esc>"
+     execute "normal! k$=%j"
+ endfunction
 
-inoremap { {<Esc>:call AutoFormatCurly()<CR>i
-" inoremap {<CR> {<CR>}<Esc>ko
+autocmd filetype cpp inoremap { {<Esc>:call AutoFormatCurly()<CR>i
+autocmd filetype cpp inoremap {<CR> {<CR>}<Esc>ko
 
 autocmd filetype cpp nnoremap <F9> :w <bar> !g++ -Wall -Wno-unused-result -std=c++17 -O2 % -o %:r<CR>
 command! InsertCppTemplate execute '0r ~/codeforces/template.cpp'
